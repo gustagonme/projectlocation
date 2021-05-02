@@ -1,0 +1,25 @@
+{
+  "name": "projectlocation-utils",
+  "version": "1.0.0",
+  "description": "Proyecto para administración de locaciones - Utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustagonme/projectlocation.git"
+  },
+  "author": "Gustavo Gonzalez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gustagonme/projectlocation/issues"
+  },
+  "homepage": "https://github.com/gustagonme/projectlocation#readme",
+  "dependencies": {
+    "chalk": "^4.0.0"
+  },
+  "devDependencies": {
+    "longjohn": "^0.2.12"
+  }
+}
