@@ -20,6 +20,7 @@ phases:
       - cd projectlocation-db && npm test && cd ..
       - cd projectlocation-api && npm test && cd ..
       - cd projectlocation-db && npm run setup -- --yes && cd ..
+      - cd projectlocation-api && npm install && cd ..
   post_build:
     commands:
       - echo Build completed on `date`
