@@ -6,7 +6,7 @@ const setupDatabase = require('../lib/db')
 module.exports = function setupLocationModel (config) {
   const sequelize = setupDatabase(config)
 
-  const location = sequelize.define('location', {
+  return sequelize.define('location', {
     uuid: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -30,7 +30,4 @@ module.exports = function setupLocationModel (config) {
     }
   })
 
-  location.belongsTo(location, { foreignKey: 'fk_uuid', targetKey: 'parent_location_id' })
-
-  return location
 }

@@ -21,6 +21,9 @@ module.exports = async function (config) {
   const sequelize = setupDatabase(config)
   const LocationModel = setupLocationModel(config)
 
+  LocationModel.hasMany(LocationModel, {as: 'children', foreignKey: 'parent_location_id'})
+  LocationModel.belongsTo(LocationModel, {as: 'parent', foreignKey: 'parent_location_id'})
+
   await sequelize.authenticate()
 
   if (config.setup) {
