@@ -1,0 +1,30 @@
+# Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10  
+    commands:
+      - echo No changes for pre build.
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - cd projectlocation-db && npm install
+      - cd projectlocation-utils && npm install
+      - cd projectlocation-api && npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Node.js code
+      - cd projectlocation-db && npm test
+      - cd projectlocation-api && npm test
+      - cd projectlocation-db && npm run setup -- --yes 
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: projectlocation-api

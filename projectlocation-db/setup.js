@@ -3,14 +3,14 @@
 const debug = require('debug')('projectlocation:db:setup')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
+const minimist = require('minimist')
 const db = require('./')
 
 const prompt = inquirer.createPromptModule()
+const args = minimist(process.argv)
 
 async function setup () {
-  const byPass = process.argv.indexOf('yes') !== -1
-
-  if (!byPass) {
+  if(!args.yes){
     const answer = await prompt([
       {
         type: 'confirm',
