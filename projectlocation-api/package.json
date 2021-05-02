@@ -32,6 +32,7 @@
     "debug": "^4.3.1",
     "express": "^4.17.1",
     "express-asyncify": "^1.0.1",
-    "projectlocation-db": "file:../projectlocation-db"
+    "projectlocation-db": "file:../projectlocation-db",
+    "projectlocation-utils": "file:../projectlocation-utils"
   }
 }

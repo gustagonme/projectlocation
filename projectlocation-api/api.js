@@ -4,14 +4,14 @@ const debug = require('debug')('projectlocation:api:routes')
 const express = require('express')
 const asyncify = require('express-asyncify')
 const db = require('projectlocation-db')
-const config = require('./config')
+const { config } = require('projectlocation-utils')
 const api = asyncify(express.Router())
 
 let services, Location
 
 api.use(express.json())
 api.use(express.urlencoded({
-    extended:true
+  extended: true
 }))
 
 api.use('*', async (req, res, next) => {
