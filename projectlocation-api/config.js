@@ -1,10 +1,10 @@
 'use strict'
 
-const debug = require('debug')('platziverse:api:db')
+const debug = require('debug')('projectlocation:api:db')
 
 module.exports = {
   db: {
-    database: process.env.DB_NAME || 'projectzero',
+    database: process.env.DB_NAME || 'locationmanager',
     username: process.env.DB_USER || 'dbadmin',
     password: process.env.DB_PASS || 'vibesgood',
     host: process.env.DB_HOST || 'ec2-54-88-190-81.compute-1.amazonaws.com',

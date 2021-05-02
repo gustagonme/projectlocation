@@ -4,10 +4,15 @@ const debug = require('debug')('projectlocation:api:routes')
 const express = require('express')
 const asyncify = require('express-asyncify')
 const db = require('projectlocation-db')
-const config  = require('./config')
+const config = require('./config')
 const api = asyncify(express.Router())
 
 let services, Location
+
+api.use(express.json())
+api.use(express.urlencoded({
+    extended:true
+}))
 
 api.use('*', async (req, res, next) => {
   if (!services) {
@@ -28,7 +33,7 @@ api.get('/locations', async (req, res, next) => {
 
   let locations = []
   try {
-    agents = await Location.findAll()
+    locations = await Location.findAll()
   } catch (e) {
     return next(e)
   }
@@ -55,7 +60,22 @@ api.get('/location/:uuid', async (req, res, next) => {
   res.send(location)
 })
 
+api.post('/location/create', async (req, res, next) => {
+  debug('request to /location/create')
+
+  let location
+
+  try {
+    location = await Location.create(req.body)
+  } catch (e) {
+    return next(e)
+  }
+
+  if (!location) {
+    return next(new Error('No se pudo crear el usuario, por favor consulte con su administrador.'))
+  }
+
+  res.send(location)
+})
 
 module.exports = api
-
-
