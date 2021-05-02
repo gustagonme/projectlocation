@@ -30,7 +30,7 @@ module.exports = function setupLocation (LocationModel) {
     }
 
     const result = await LocationModel.create(location)
-    return result.toJSON()
+    return result
   }
 
   return {
