@@ -27,4 +27,4 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: projectlocation-api
+  base-directory: ./projectlocation-api
