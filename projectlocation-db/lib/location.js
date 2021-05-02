@@ -26,11 +26,11 @@ module.exports = function setupLocation (LocationModel) {
       const res = {
         message: 'Ya existe una locación con este id único.'
       }
-      return res.toJson()
+      return res
     }
 
     const result = await LocationModel.create(location)
-    return result.toJson()
+    return result.toJSON()
   }
 
   return {
