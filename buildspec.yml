@@ -10,7 +10,7 @@ phases:
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
-      - cd projectlocation-db && npm install && cd..
+      - cd projectlocation-db && npm install && cd ..
       - cd projectlocation-utils && npm install && cd ..
       - cd projectlocation-api && npm install && cd ..
   build:
@@ -19,7 +19,7 @@ phases:
       - echo Compiling the Node.js code
       - cd projectlocation-db && npm test && cd ..
       - cd projectlocation-api && npm test && cd ..
-      - cd projectlocation-db && npm run setup -- --yes && cd..
+      - cd projectlocation-db && npm run setup -- --yes && cd ..
   post_build:
     commands:
       - echo Build completed on `date`
