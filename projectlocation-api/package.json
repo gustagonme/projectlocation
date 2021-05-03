@@ -1,0 +1,38 @@
+{
+  "name": "projectlocation-api",
+  "version": "1.0.0",
+  "description": "Proyecto para el manejo de locaciones - API",
+  "main": "server.js",
+  "scripts": {
+    "test": "DEBUG=platziverse:* ava tests/* --verbose",
+    "lint": "standard",
+    "start": "NODE_ENV= production node server.js",
+    "start-dev": "DEBUG=platziverse:* nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustagonme/projectlocation.git"
+  },
+  "author": "Gustavo Gonzalez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gustagonme/projectlocation/issues"
+  },
+  "homepage": "https://github.com/gustagonme/projectlocation#readme",
+  "devDependencies": {
+    "ava": "^3.15.0",
+    "nodemon": "^2.0.7",
+    "proxyquire": "^2.1.3",
+    "sinon": "^10.0.0",
+    "standard": "^16.0.3",
+    "supertest": "^6.1.3"
+  },
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "debug": "^4.3.1",
+    "express": "^4.17.1",
+    "express-asyncify": "^1.0.1",
+    "projectlocation-db": "file:../projectlocation-db",
+    "projectlocation-utils": "file:../projectlocation-utils"
+  }
+}
