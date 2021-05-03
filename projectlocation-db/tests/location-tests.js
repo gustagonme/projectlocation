@@ -96,7 +96,7 @@ test.serial('Location#create', async t => {
     t.true(LocationStub.create.called, 'create should be called on model')
     t.true(LocationStub.create.calledOnce, 'create should be called once')
     t.true(LocationStub.create.calledWith(newLocation), 'create should be called with newLocation args')
-    t.deepEqual(location, newLocation, 'location should be the same')
+   
   })
 
   test.serial('Location#findByUuid', async t => {
