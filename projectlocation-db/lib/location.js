@@ -24,6 +24,7 @@ module.exports = function setupLocation (LocationModel) {
 
     if (existingLocation) {
       const res = {
+        code: 9009,
         message: 'Ya existe una locación con este id único.'
       }
       return res
