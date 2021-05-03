@@ -3,14 +3,14 @@
 const debug = require('debug')('projectlocation:db:setup')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
+const minimist = require('minimist')
 const db = require('./')
 
 const prompt = inquirer.createPromptModule()
+const args = minimist(process.argv)
 
 async function setup () {
-  const byPass = process.argv.indexOf('yes') !== -1
-
-  if (!byPass) {
+  if(!args.yes){
     const answer = await prompt([
       {
         type: 'confirm',
@@ -26,10 +26,10 @@ async function setup () {
 
   const config = {
     database: process.env.DB_NAME || 'locationmanager',
-    username: process.env.DB_USER || 'dbadmin',
-    password: process.env.DB_PASS || 'vibesgood',
-    host: process.env.DB_HOST || 'ec2-54-88-190-81.compute-1.amazonaws.com',
-    port: process.env.DB_PORT || '5433',
+    username: process.env.DB_USER || 'root',
+    password: process.env.DB_PASS || 'root',
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || '5432',
     dialect: 'postgres',
     logging: s => debug(s),
     setup: true
